@@ -1,0 +1,1022 @@
+@font-face {
+  font-family: "Assistant";
+  src: url(./fonts/Assistant-Regular.woff);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Assistant";
+  src: url(./fonts/Assistant-Bold.woff);
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  font-family: "Assistant";
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+header {
+  color: #fff;
+  top: 0;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+.header-wrapper {
+  display: block;
+  margin: auto;
+  min-width: 980px;
+  line-height: 80px;
+}
+.desktop-logo-div {
+  float: left;
+  height: inherit;
+  margin-left: 4%;
+}
+.desktop-logo-div a {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: 53px;
+  height: 36px;
+  background: url(https://constant.myntassets.com/web/assets/img/MyntraWebSprite_27_01_2021.png);
+  background-position: -462px 0;
+  background-size: 1404px 105px;
+  background-repeat: no-repeat;
+}
+.desktop-navbar {
+  display: block;
+  float: left;
+  line-height: 80px;
+  height: 80px;
+  display: block;
+  float: left;
+  line-height: 80px;
+  height: 80px;
+  margin: 0 0 0 3.5%;
+}
+.desktop-navbar a {
+  padding: 0 17px 28px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  color: #282c3f;
+  border-bottom: none;
+  -webkit-transition: left 0.2s ease-out, width 0.2s ease-out;
+  transition: left 0.2s ease-out, width 0.2s ease-out;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.desktop-navbar a span {
+  display: inline;
+  width: 23px;
+  height: 12px;
+  font-family: Assistant;
+  font-size: 10px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ff3f6c;
+  content: "new";
+  position: relative;
+  top: -6.4px;
+  left: 4px;
+  position: relative;
+  vertical-align: baseline;
+  text-transform: uppercase;
+}
+.desktop-actions {
+  float: right;
+  display: flex;
+  line-height: 0;
+  height: 40px;
+  margin: 20px 30px 0 10px;
+}
+.desktop-actions .profile-div {
+  position: relative;
+  height: 60px;
+  margin: 0 20px 0 15px;
+}
+.profile-div .profile-wrapper {
+  padding: 0 12px 0 17px;
+  position: relative;
+  display: flex;
+  height: 40px;
+}
+.profile-wrapper :nth-child(1) {
+  display: block;
+  margin: 10px 0 0;
+  position: absolute;
+  bottom: 13px;
+  left: 5px;
+  background: url(https://constant.myntassets.com/web/assets/img/MyntraWebSprite_27_01_2021.png);
+  background-size: 1404px 105px;
+  width: 24px;
+  height: 24px;
+  background-position: -298px -56px;
+}
+.wishlist-wrapper {
+  display: flex;
+  text-decoration: none;
+  position: relative;
+  margin: 0 55px 0 10px;
+}
+.wishlist-wrapper :nth-child(1) {
+  display: inline-block;
+  background: url(https://constant.myntassets.com/web/assets/img/MyntraWebSprite_27_01_2021.png);
+  background-size: 1404px 105px;
+  margin: 8px 0 0;
+  position: absolute;
+  bottom: 14px;
+  left: 13px;
+  width: 17px;
+  height: 22px;
+  background-position: -315px -187px;
+}
+.bag-wrapper {
+  position: relative;
+  display: flex;
+  margin: 0 50px 0 15px;
+}
+.bag-wrapper :nth-child(1) {
+  background: url(https://constant.myntassets.com/web/assets/img/MyntraWebSprite_27_01_2021.png);
+  background-size: 1404px 105px;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-position: -341px -56px;
+  margin: 8px -1px 0;
+  position: absolute;
+  bottom: 14px;
+}
+.menu-item :nth-child(2) {
+  color: #000;
+  position: absolute;
+  bottom: 4px;
+  left: 1px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+  padding-top: 10px;
+  line-height: 6px;
+}
+.search-bar {
+  display: flex;
+  line-height: 0;
+  padding: 20px 30px 20px 0px;
+  width: 33.5%;
+  float: right;
+}
+.search-bar input {
+  display: inline-block;
+  font-family: "Assistant";
+  font-weight: 400;
+  font-size: 14px;
+  height: 20px;
+  line-height: 24px;
+  color: #696e79;
+  box-sizing: content-box;
+  padding: 8px 10px 10px;
+  margin: 0;
+  outline: 0;
+  border: 1px solid #f5f5f6;
+  border-radius: 0 4px 4px 0;
+  border-left: 0;
+  background: #f5f5f6;
+  width: 95%;
+}
+.search-bar a {
+  display: inline-block;
+  height: 28px;
+  width: 40px;
+  text-align: center;
+  padding: 8px 0px 2px 0px;
+  background: #f5f5f6;
+  border: 1px solid #f5f5f6;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+}
+.search-bar a span {
+  display: inline-block;
+  transform: scale(0.7);
+  background: url(https://constant.myntassets.com/web/assets/img/MyntraWebSprite_27_01_2021.png);
+  background-size: 1404px 105px;
+  width: 21px;
+  height: 21px;
+  background-position: -754px 0;
+}
+.main-container {
+  min-height: 750px;
+  margin-top: 82px;
+}
+main {
+  display: block;
+  margin: 58px auto 0;
+  max-width: 1600px;
+}
+.section-switch-wrapper {
+  padding: 19px 0 0;
+}
+main .section-switch-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  vertical-align: top;
+}
+.section-switch-container .section-switch-wrapper ul {
+  font-size: 14px;
+  overflow: hidden;
+  padding: 0;
+  display: inline-block;
+  margin: 0 0 0 25px;
+  vertical-align: top;
+}
+.section-switch-container .section-switch-wrapper ul li {
+  font-size: 14px;
+  float: left;
+  margin-right: 5px;
+  text-transform: capitalize;
+  line-height: 1;
+  color: #282c3f;
+}
+.section-switch-wrapper ul :nth-child(3) {
+  font-weight: 700;
+}
+.section-switch-wrapper ul li span {
+  margin-left: 5px;
+}
+.title-container {
+  margin: 10px 0 5px 25px;
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  overflow: hidden;
+}
+.title-container .h1-title {
+  font-weight: 700;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #282c3f;
+  max-width: 400px;
+  text-transform: capitalize;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0;
+}
+.title-container .item-count {
+  color: #878b94;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 0 0 3px;
+}
+.left-container {
+  min-width: 252px;
+  max-width: 252px;
+}
+
+.left-section-wrapper {
+  transition: margin 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-top: 0;
+  padding-top: 23px;
+  position: static;
+}
+.left-section-wrapper .left-container-common {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  padding-left: 25px;
+  border-bottom: 1px solid #e9e9ed;
+  position: relative;
+  border-right: 1px solid #edebef;
+}
+
+.left-section-wrapper .filter-text-div {
+  position: relative;
+  border-right: none !important;
+  padding-top: 0;
+  font-weight: 700;
+}
+.filter-text-div .filter-heading {
+  position: relative;
+  border-right: none !important;
+  padding-top: 0;
+}
+
+.list-common-div ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+.list-common-div ul li {
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+.list-common-div ul :last-child {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+.list-common-div .gender-label {
+  cursor: pointer;
+  color: #282c3f;
+  font-weight: 700;
+  position: relative;
+  vertical-align: middle;
+}
+.gender-label input[type="radio"] {
+  margin: 0 16px 0 0;
+  visibility: hidden;
+}
+.common-radio {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.common-radio::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid #c3c2c9;
+  border-radius: 50%;
+  visibility: visible;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 2px;
+  text-align: center;
+}
+.categories-container {
+  position: relative;
+}
+.filters-heading {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 0 0 18px;
+  clear: both;
+  color: #282c3f;
+  display: block;
+}
+.common-checkbox {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #c3c2c9;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.common-checkbox::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 1;
+  width: 8px;
+  height: 5px;
+  border-color: #fff;
+  border-style: none none solid solid;
+  border-width: 2px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.label-common {
+  font-weight: 400 !important;
+  display: block;
+  width: 95%;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 17px;
+  color: #282c3f;
+}
+.label-common span {
+  color: #94969f;
+  font-size: 11px;
+  margin-left: 1px;
+}
+.gender-label input[type="checkbox"] {
+  margin: 0 13px 0 0;
+  visibility: hidden;
+}
+.brand-container {
+  position: relative;
+}
+.search-lens-icon-div {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  background-color: #f5f5f6;
+  border-radius: 50%;
+}
+.filter-search-input-hidden {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  padding: 2px 33px 2px 14px;
+  display: none;
+}
+.search-lens-icon {
+  display: inline-block;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transform: scale(0.7);
+  background: url(https://constant.myntassets.com/web/assets/img/MyntraWebSprite_27_01_2021.png);
+  background-size: 1404px 105px;
+  background-position: -754px 0;
+  width: 21px;
+  height: 21px;
+  cursor: pointer;
+}
+.brand-more {
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 15px;
+  color: #ff3f6c;
+  margin-left: 27px;
+}
+.priceHeading {
+  margin-bottom: 10px;
+}
+.slider-container {
+  margin: 12px 0 4px;
+}
+.slider-wrapper {
+  position: relative;
+  margin-right: 16px;
+  width: 200px;
+}
+.slider-rail {
+  position: relative;
+  height: 12px;
+  background-color: #fff;
+}
+.slider-rail-wrap {
+  position: absolute;
+  transform: translateY(-50%);
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #d4d5d9;
+}
+.silder-rail-range {
+  position: absolute;
+  height: 2px;
+  width: 200px;
+  top: 5px;
+  background-color: #ff3f6c;
+}
+.thumb-left {
+  left: 0;
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: #ff3f6c;
+  outline: none;
+  transform: translateX(-75%);
+}
+.left-thumb-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  top: 4px;
+  left: 4px;
+  position: absolute;
+}
+.thumb-right {
+  transform: translateX(-25%);
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: #ff3f6c;
+  outline: none;
+}
+.right-thumb-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  top: 4px;
+  left: 4px;
+  position: absolute;
+}
+.price-slider-count {
+  margin: 10px -4px 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.color-span {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1px solid #94969f30;
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 27px !important;
+  position: relative;
+  line-height: 16px;
+  vertical-align: top;
+}
+.color-count-span {
+  margin-left: 4px !important;
+}
+.right-container {
+  flex: 1 1 0%;
+}
+.right-top-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+.top-filters-row {
+  width: 100%;
+  user-select: none;
+  border-bottom: 1px solid #eaeaec;
+  padding-bottom: 5px;
+  padding-top: 23px;
+}
+.sort-recommended-div {
+  float: right;
+  margin-right: 30px;
+  margin-bottom: 0;
+  margin-top: -7px;
+  position: relative;
+  top: -5px;
+}
+.sort-recommended-wrapper {
+  padding: 9px 14px;
+  font-size: 14px;
+  color: #282c3f;
+  cursor: pointer;
+  position: relative;
+  width: 255px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-color: #fff;
+  border: 1px solid #d4d5d9;
+}
+.sort-recommended-wrapper :nth-child(1) {
+  text-transform: capitalize;
+  font-weight: 700;
+  color: #282c3f;
+}
+.sort-recommended-wrapper :nth-child(2) {
+  background: url(https://constant.myntassets.com/web/assets/img/MyntraWebSprite_27_01_2021.png);
+  background-size: 1404px 105px;
+  margin-left: 5px;
+  margin-top: 5px;
+  float: right;
+  background-position: -367px -1px;
+  width: 15px;
+  height: 10px;
+}
+.top-filters-list {
+  font-size: 14px;
+  display: flex;
+  color: #282c3f;
+  flex-flow: row wrap;
+  margin: -10px 0 0 16px !important;
+  padding: 0 !important;
+}
+.top-filters-list li {
+  margin-right: 4px;
+  margin-bottom: 0;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.top-filters-list li label {
+  position: relative;
+  padding: 5px 8px 5px 10px;
+  white-space: nowrap;
+}
+.top-filters-list li label span {
+  background: url(https://constant.myntassets.com/web/assets/img/MyntraWebSprite_27_01_2021.png);
+  background-size: 1404px 105px;
+  display: inline-block;
+  background-position: -2679px -89px;
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+  transform: scale(0.8);
+  margin-left: 1px;
+}
+.top-filters-list li label h4 {
+  font-weight: 400;
+  margin: 0;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.right-main-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  padding-top: 24px;
+  padding-left: 15px;
+  padding-right: 20px;
+}
+.right-main-container section {
+  width: 100%;
+}
+
+.right-main-container section .product-list {
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: stretch;
+  margin: 0 -10px 0 3px;
+  width: 100%;
+  justify-content: space-between;
+  padding-left: 0;
+}
+.right-main-container section .product-list li {
+  width: 210px;
+  text-align: left;
+  position: relative;
+  vertical-align: top;
+  overflow: hidden;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0 10px 30px;
+}
+.card-container {
+  display: block;
+}
+.product-image-slider-container {
+  position: relative;
+  width: 210px;
+  height: 280px;
+}
+.product-image-slider-wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.image-slider-bg {
+  background: rgb(229, 241, 255);
+  height: 280px;
+  width: 100%;
+}
+.image-slider-bg picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.product-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 101%;
+  height: 210px;
+  background-color: #282c3f;
+  -webkit-transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0s, opacity 0.5s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+.rating-container {
+  z-index: 1;
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 250px;
+  font-size: 12px;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  padding: 0 0 0 4px;
+  background-color: hsla(0, 0%, 100%, 0.8);
+}
+.rating-container :nth-child(2) {
+  background: url(https://constant.myntassets.com/web/assets/img/MyntraWebSprite_27_01_2021.png);
+  background-size: 1404px 105px;
+  display: inline-block;
+  margin-left: -2px;
+  -webkit-transform: scale(0.55);
+  transform: scale(0.55);
+  background-position: -171px -28px;
+  width: 24px;
+  height: 24px;
+}
+.rating-count {
+  display: flex;
+  padding-right: 4px;
+}
+.rating-seperator {
+  font-size: 10px;
+  margin: -0.5px 6px 0 -2px;
+}
+.product-info-container {
+  position: relative;
+  z-index: 3;
+  background: #fff;
+  padding: 0 10px;
+  height: 100%;
+  margin-top: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.product-info-container h3 {
+  margin-top: 0;
+  padding: 0;
+}
+.product-info-container h4 {
+  padding-left: 0;
+}
+.product-sizes span {
+  color: #535665;
+}
+.product-rate-container {
+  font-size: 14px;
+  line-height: 15px;
+  color: #282c3f;
+  white-space: nowrap;
+}
+.price-and-discount-span :nth-child(1) {
+  font-size: 14px;
+  font-weight: 700;
+  color: #282c3f;
+}
+.price-and-discount-span :nth-child(2) {
+  text-decoration: line-through;
+  color: #7e818c;
+  font-weight: 400;
+  margin-left: 2px;
+  font-size: 12px;
+}
+.product-name {
+  color: #535766;
+  font-size: 14px;
+  line-height: 1;
+  margin-bottom: 0;
+  margin-top: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 400;
+  display: block;
+}
+.product-rate-container {
+  margin: 10px 0 6px;
+  font-weight: 700;
+}
+.product-rate-container .discount {
+  color: #ff905a;
+  font-weight: 400;
+  font-size: 12px;
+  margin-left: 2px;
+}
+.product-sizes {
+  display: none;
+}
+.product-common-brand {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  color: #282c3f;
+  margin-bottom: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hover-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  display: block;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.product-image.front {
+  z-index: 1;
+  opacity: 1;
+}
+
+.product-image.back {
+  z-index: 2;
+  opacity: 0;
+}
+
+.hover-image-wrapper:hover .product-image.front {
+  opacity: 0;
+}
+
+.hover-image-wrapper:hover .product-image.back {
+  opacity: 1;
+}
+
+.footer-container {
+  list-style: none;
+  text-align: center;
+  border-top: 1px solid #edebef;
+  padding-top: 24px;
+  padding-bottom: 60px;
+  color: #282c3f;
+}
+.page-no-switch-div {
+  display: inline-block;
+  margin-right: 9px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.left-arrow-span {
+  display: inline-block;
+  position: relative;
+  width: 16px;
+  height: 8px;
+  margin-right: 8px;
+}
+.left-arrow-span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  border: solid #282c3f;
+  border-width: 2px 2px 0 0;
+  -webkit-transform: rotate(224deg);
+  transform: rotate(224deg);
+}
+.left-arrow-span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border: solid #282c3f;
+  border-width: 2px 2px 0 0;
+  left: 0;
+  -webkit-transform: rotate(224deg);
+  transform: rotate(224deg);
+}
+.previous-switch {
+  display: inline-block;
+  height: 42px;
+  border-radius: 4px;
+  border: 1px solid #d4d5d9;
+  text-align: center;
+  margin-right: 64px;
+  padding: 10px 22px;
+  height: 20px !important;
+}
+.previous-switch .arrow-left {
+  margin-right: 8px;
+  transform: rotate(224deg);
+  margin-left: 2px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: solid #282c3f;
+  border-width: 2px 2px 0 0;
+  margin-bottom: 1px;
+}
+.page-nos {
+  display: inline-block;
+  padding: 6px 8px;
+  border-radius: 2px;
+  color: #535766;
+  font-size: 14px;
+  margin-top: 6px;
+  margin-right: 10px;
+  cursor: default;
+  font-weight: 400;
+}
+.next-div {
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid #d4d5d9;
+  text-align: center;
+  margin-left: 64px;
+  padding: 10px 22px;
+  display: inline-block;
+  margin-right: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.next-div .right-arrow {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: solid #282c3f;
+  border-width: 2px 2px 0 0;
+  margin-bottom: 1px;
+  margin-left: 8px;
+  transform: rotate(45deg);
+  margin-right: 2px;
+}
+
+.parent-container {
+  position: relative;
+}
+
+.left-section-wrapper {
+  width: 252px;
+  min-width: 252px;
+  z-index: 4;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1250px) {
+  .desktop-logo-div {
+    margin-left: 2%;
+  }
+  .search-bar {
+    width: 319px !important;
+  }
+  .desktop-navbar {
+    margin: 0 0 0 1%;
+  }
+  .desktop-actions {
+    margin: 20px 0 10px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .desktop-query {
+    width: 32%;
+  }
+}
+@media (max-width: 1366px) {
+  .desktop-query {
+    margin-right: 8px;
+  }
+}
+@media (max-width: 1449px) {
+  .search-bar {
+    display: flex;
+    line-height: 0;
+    padding: 20px 19px 20px 0px;
+    width: 31%;
+    float: right;
+  }
+}

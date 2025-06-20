@@ -355,6 +355,9 @@ main .section-switch-container {
   top: 0;
   left: 0;
 }
+input[type="radio"]:checked + .common-radio::before {
+  border: 1px solid #ff3f6c;
+}
 .common-radio::before {
   content: "";
   position: absolute;
@@ -646,7 +649,7 @@ main .section-switch-container {
   height: 15px;
   vertical-align: middle;
   transform: scale(0.8);
-  margin-left: 1px;
+  margin-left: 4px;
 }
 .top-filters-list li label h4 {
   font-weight: 400;
@@ -984,6 +987,90 @@ main .section-switch-container {
   min-width: 252px;
   z-index: 4;
   margin-bottom: 10px;
+}
+
+.gender-label .common-radio::after,
+.gender-label .common-checkbox::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.gender-label input[type="radio"]:checked ~ .common-radio::after,
+.gender-label input[type="checkbox"]:checked ~ .common-checkbox::after {
+    display: block;
+}
+.gender-label input[type="checkbox"]:checked ~ .common-checkbox {
+  background-color: #ff3f6c;
+  border-color: #ff3f6c;
+}
+.gender-label .common-radio::after {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff3f6c;
+    top: 5px;
+    left: 5px;
+}
+
+.gender-label .common-checkbox::after {
+    width: 7px;
+    height: 3px;
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(-45deg);
+    top: 3px;
+    left: 2px;
+}
+.left-container {
+    position: relative;
+}
+.filter-text-div {
+    position: relative;
+    padding-right: 100px;
+}
+
+.clear-all-btn {
+  
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: 'Assistant';
+    background: none;
+    border: none;
+    color: #ff3f6c;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 2px 10px;
+}
+
+.active-filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0px 16px 0px 25px;
+    padding: 8px 0;
+    align-items: center;
+}
+
+.active-filter-tag {
+    display: flex;
+    align-items: center;
+    background: #f5f5f6;
+    padding: 4px 8px;
+    font-size: 12px;
+    color: #282c3f;
+    background-color: white;
+    border: 1px solid #00000029;
+    border-radius: 12px;
+}
+
+.active-filter-tag .clear-filter {
+    margin-left: 6px;
+    cursor: pointer;
+    color: #0000009c;
+    font-weight: bold;
 }
 
 @media (max-width: 1250px) {

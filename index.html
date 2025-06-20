@@ -1,173 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
-      <link rel="stylesheet" href="/index.css" />
-   </head>
-   <body>
-      <header>
-         <div class="header-wrapper">
-            <div class="desktop-logo-div">
-               <a href=""></a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-wrapper">
+        <div class="desktop-logo-div">
+          <a href=""></a>
+        </div>
+        <div class="desktop-navbar" id="desktop-navbar"></div>
+        <div class="desktop-actions">
+          <div class="profile-div">
+            <div class="profile-wrapper menu-item">
+              <span></span>
+              <span></span>
             </div>
-            <div class="desktop-navbar" id="desktop-navbar"></div>
-            <div class="desktop-actions">
-               <div class="profile-div">
-                  <div class="profile-wrapper menu-item">
-                     <span></span>
-                     <span></span>
-                  </div>
-               </div>
-               <div class="wishlist-wrapper menu-item">
-                  <span></span>
-                  <span></span>
-               </div>
-               <div class="bag-wrapper menu-item">
-                  <span></span>
-                  <span></span>
-               </div>
-            </div>
-            <div class="search-bar">
-               <a href=""><span></span></a>
-               <input
-                  placeholder="Search for products, brands and more"
-                  class="desktop-searchBar"
-                  />
-            </div>
-         </div>
-      </header>
-      <div class="main-container">
-         <main>
-            <div class="section-switch-container">
-               <div class="section-switch-wrapper">
-                  <ul id="section-list"></ul>
-               </div>
-            </div>
-            <div class="section-switch-container">
-               <div class="title-container">
-                  <h1 class="h1-title" id="section-title"></h1>
-                  <span class="item-count" id="item-count"></span>
-               </div>
-            </div>
-            <div class="section-switch-container">
-               <div class="left-container">
-                  <section class="left-section-wrapper">
-                     <div class="filter-text-div left-container-common">
-                        <span class="filter-heading" id="filter-heading"></span>
-                     </div>
-                     <div
-                        class="list-common-div left-container-common"
-                        id="gender-div"
-                        >
-                        <ul></ul>
-                     </div>
-                     <div
-                        class="categories-container list-common-div left-container-common"
-                        >
-                        <span class="filters-heading" id="category-heading"></span>
-                        <ul class="categories-list" id="categories-list"></ul>
-                     </div>
-                     <div
-                        class="left-container-common brand-container list-common-div"
-                        >
-                        <span class="filters-heading" id="brand-heading"></span>
-                        <div class="search-lens-icon-div">
-                           <input
-                              type="text"
-                              class="filter-search-input-hidden"
-                              placeholder="Search for Brand"
-                              />
-                           <span class="search-lens-icon"></span>
-                        </div>
-                        <ul class="brands-list" id="brandsList"></ul>
-                        <div class="brand-more" id="brandMore"></div>
-                     </div>
-                     <div
-                        class="price-container list-common-div left-container-common"
-                        >
-                        <span
-                           class="filters-heading priceHeading"
-                           id="priceHeading"
-                           ></span>
-                        <div class="slider-container">
-                           <div class="slider-wrapper">
-                              <div class="slider-rail" id="sliderRail">
-                                 <div class="slider-rail-wrap"></div>
-                                 <div class="silder-rail-range" id="sliderRange"></div>
-                                 <div class="thumb-left" id="thumbLeft">
-                                    <div class="left-thumb-dot"></div>
-                                 </div>
-                                 <div class="thumb-right" id="thumbRight">
-                                    <div class="right-thumb-dot"></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="price-slider-count" id="priceSliderCount"></div>
-                        </div>
-                     </div>
-                     <div
-                        class="price-container list-common-div left-container-common"
-                        >
-                        <span class="filters-heading" id="colorHeading"></span>
-                        <div class="search-lens-icon-div">
-                           <input
-                              type="text"
-                              class="filter-search-input-hidden"
-                              placeholder="Search for Brand"
-                              />
-                           <span class="search-lens-icon"></span>
-                        </div>
-                        <ul class="color-list" id="colorList"></ul>
-                     </div>
-                     <div
-                        class="price-container list-common-div left-container-common"
-                        >
-                        <span class="filters-heading" id="discountHeading"></span>
-                        <ul class="discount-list" id="discount-list"></ul>
-                     </div>
-                  </section>
-               </div>
-               <div class="right-container">
-                  <div class="right-top-row">
-                     <div class="top-filters-row">
-                        <div class="sort-recommended-div">
-                           <div class="sort-recommended-wrapper">
-                              Sort by : <span id="sortByText">Recommended</span>
-                              <span></span>
-                           </div>
-                        </div>
-                        <ul class="top-filters-list" id="topFiltersList"></ul>
-                     </div>
-                  </div>
-                  <div class="right-main-container">
-                     <section>
-                        <ul class="product-list" id="productList"></ul>
-                        <ul class="footer-container">
-                           <li class="page-no-switch-div">
-                              <span class="left-arrow-span">
-                              </span>
-                              Page 1
-                           </li>
-                           <li class="previous-switch page-no-switch-div">
-                              <span class="arrow-left"></span>
-                              Previous
-                           </li>
-                           <li class="page-nos">
-                              Page 1 of 5041
-                           </li>
-                           <li class="next-div">
-                              Next
-                              <span class="right-arrow"></span>
-                           </li>
-                        </ul>
-                     </section>
-                  </div>
-               </div>
-            </div>
-         </main>
+          </div>
+          <div class="wishlist-wrapper menu-item">
+            <span></span>
+            <span></span>
+          </div>
+          <div class="bag-wrapper menu-item">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="search-bar">
+          <a href=""><span></span></a>
+          <input
+            placeholder="Search for products, brands and more"
+            class="desktop-searchBar"
+          />
+        </div>
       </div>
-      <script src="./script.js"></script>
-   </body>
+    </header>
+    <div class="main-container">
+      <main>
+        <div class="section-switch-container">
+          <div class="section-switch-wrapper">
+            <ul id="section-list"></ul>
+          </div>
+        </div>
+        <div class="section-switch-container">
+          <div class="title-container">
+            <h1 class="h1-title" id="section-title"></h1>
+            <span class="item-count" id="item-count"></span>
+          </div>
+        </div>
+        <div class="section-switch-container">
+          <div class="left-container">
+            <section class="left-section-wrapper">
+              <div class="filter-text-div left-container-common">
+                <span class="filter-heading" id="filter-heading"></span>
+              </div>
+              <div
+                class="list-common-div left-container-common"
+                id="gender-div"
+              >
+                <ul></ul>
+              </div>
+              <div
+                class="categories-container list-common-div left-container-common"
+              >
+                <span class="filters-heading" id="category-heading"></span>
+                <ul class="categories-list" id="categories-list"></ul>
+              </div>
+              <div
+                class="left-container-common brand-container list-common-div"
+              >
+                <span class="filters-heading" id="brand-heading"></span>
+                <div class="search-lens-icon-div">
+                  <input
+                    type="text"
+                    class="filter-search-input-hidden"
+                    placeholder="Search for Brand"
+                  />
+                  <span class="search-lens-icon"></span>
+                </div>
+                <ul class="brands-list" id="brandsList"></ul>
+                <div class="brand-more" id="brandMore"></div>
+              </div>
+              <div
+                class="price-container list-common-div left-container-common"
+              >
+                <span
+                  class="filters-heading priceHeading"
+                  id="priceHeading"
+                ></span>
+                <div class="slider-container">
+                  <div class="slider-wrapper">
+                    <div class="slider-rail" id="sliderRail">
+                      <div class="slider-rail-wrap"></div>
+                      <div class="silder-rail-range" id="sliderRange"></div>
+                      <div class="thumb-left" id="thumbLeft">
+                        <div class="left-thumb-dot"></div>
+                      </div>
+                      <div class="thumb-right" id="thumbRight">
+                        <div class="right-thumb-dot"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="price-slider-count" id="priceSliderCount"></div>
+                </div>
+              </div>
+              <div
+                class="price-container list-common-div left-container-common"
+              >
+                <span class="filters-heading" id="colorHeading"></span>
+                <div class="search-lens-icon-div">
+                  <input
+                    type="text"
+                    class="filter-search-input-hidden"
+                    placeholder="Search for Brand"
+                  />
+                  <span class="search-lens-icon"></span>
+                </div>
+                <ul class="color-list" id="colorList"></ul>
+              </div>
+              <div
+                class="price-container list-common-div left-container-common"
+              >
+                <span class="filters-heading" id="discountHeading"></span>
+                <ul class="discount-list" id="discount-list"></ul>
+              </div>
+            </section>
+          </div>
+          <div class="right-container">
+            <div class="right-top-row">
+              <div class="top-filters-row">
+                <div class="sort-recommended-div">
+                  <div class="sort-recommended-wrapper">
+                    Sort by : <span id="sortByText"></span>
+                    <span></span>
+                  </div>
+                </div>
+                <ul class="top-filters-list" id="topFiltersList"></ul>
+              </div>
+            </div>
+            <div class="right-main-container">
+              <section>
+                <ul class="product-list" id="productList"></ul>
+                <ul class="footer-container" id="paginationContainer"></ul>
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
 </html>

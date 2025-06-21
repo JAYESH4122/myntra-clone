@@ -1576,5 +1576,11 @@
   "pagination": {
     "currentPage": 1,
     "totalPages": 5041
+  },
+  
+  "nav": {
+    "mainTitle": "Dresses",
+    "subTitle": "252284 items"
   }
+
 }

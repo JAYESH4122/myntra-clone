@@ -61,7 +61,9 @@ fetch("data.json")
       }
 
       filteredProducts = result;
-      document.getElementById("item-count").textContent = ` - ${filteredProducts.length} items`;
+      document.getElementById(
+        "item-count"
+      ).textContent = ` - ${filteredProducts.length} items`;
       totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
       currentPage = 1;
 
@@ -91,18 +93,26 @@ fetch("data.json")
                 <div class="product-slide"></div>
                 <div class="rating-container">
                     <span>${product.rating}</span><span></span>
-                    <div class="rating-count"><div class="rating-seperator">|</div>${product.ratingCount}</div>
+                    <div class="rating-count"><div class="rating-seperator">|</div>${
+                      product.ratingCount
+                    }</div>
                 </div>
                 <a class="card-container">
                     <div class="product-image-slider-container">
                         <div class="image-slider-bg">
-                            <img draggable="false" src="${product.image}" alt="${product.alt}" title="${product.alt}" class="img-responsive" style="width: 100%; height: 100%; display: block"/>
+                            <img draggable="false" src="${
+                              product.image
+                            }" alt="${product.alt}" title="${
+            product.alt
+          }" class="img-responsive" style="width: 100%; height: 100%; display: block"/>
                         </div>
                     </div>
                     <div class="product-info-container">
                         <h3 class="product-common-brand">${product.brand}</h3>
                         <h4 class="product-name">${product.name}</h4>
-                        <h4 class="product-sizes">Sizes: <span>${product.sizes.join(", ")}</span></h4>
+                        <h4 class="product-sizes">Sizes: <span>${product.sizes.join(
+                          ", "
+                        )}</span></h4>
                         <div class="product-rate-container">
                             <span class="price-and-discount-span">
                                 <span>Rs. ${product.price}</span>
@@ -128,14 +138,20 @@ fetch("data.json")
       }
 
       paginationContainer.innerHTML = `
-            <li class="page-no-switch-div ${currentPage === 1 ? "disabled" : ""}" id="firstPageBtn">
+            <li class="page-no-switch-div ${
+              currentPage === 1 ? "disabled" : "first-page-change"
+            }" id="firstPageBtn">
                 <span class="left-arrow-span"></span> Page 1
             </li>
-            <li class="previous-switch page-no-switch-div ${currentPage === 1 ? "disabled" : ""}" id="prevPageBtn">
-                <span class="arrow-left"></span> Previousf
+            <li class="previous-switch page-no-switch-div ${
+              currentPage === 1 ? "disabled" : "prev-color-change"
+            }" id="prevPageBtn">
+                <span class="arrow-left"></span> Previous
             </li>
             <li class="page-nos">Page ${currentPage} of ${totalPages}</li>
-            <li class="next-div ${currentPage === totalPages ? "disabled" : ""}" id="nextPageBtn">
+            <li class="next-div ${
+              currentPage === totalPages ? "disabled" : ""
+            }" id="nextPageBtn">
                 Next <span class="right-arrow"></span>
             </li>`;
 
@@ -456,12 +472,65 @@ fetch("data.json")
     }
 
     function initializeUI() {
-      navbar.innerHTML = data.navbarItems
-        .map((item, index) => {
-          const isLast = index === data.navbarItems.length - 1;
-          return `<a href="#">${item}${isLast ? "<span>new</span>" : ""}</a>`;
-        })
-        .join("");
+navbar.innerHTML = data.navbarItems
+  .map(item => {
+    const type = item.toLowerCase(); // 'men', 'women', 'kids'
+    return `
+      <div class="desktop-nav-link" data-type="${type}">
+        <a href="#">${item}</a>
+        <div class="desktop-nav-hover-container"></div>
+      </div>
+    `;
+  })
+  .join("");
+
+document.querySelectorAll(".desktop-nav-link").forEach(navItem => {
+  const type = navItem.dataset.type;
+  const container = navItem.querySelector(".desktop-nav-hover-container");
+
+  navItem.addEventListener("mouseenter", () => {
+    const menu = data.menuData[`nav-items-${type}`];
+    if (!menu) return;
+
+    const columnsHtml = Object.entries(menu)
+      .filter(([key]) => key.startsWith("columns"))
+      .map(([_, columnData]) => {
+        const columnContent = Object.values(columnData)
+          .map(section => {
+            const heading = section.heading || "";
+            const subList = (section.subheadings || [])
+              .map(sub => `<li class="hover-category-subname">${sub}</li>`)
+              .join("");
+
+            return `
+              <li class="hover-category-name">${heading}</li>
+              ${subList}
+              <li class="hover-category-subname extra-bottom-div">Explore All →</li>
+            `;
+          })
+          .join("");
+
+        return `
+          <li class="desktop-hover-column">
+            <ul>${columnContent}</ul>
+          </li>
+        `;
+      })
+      .join("");
+
+    container.innerHTML = `
+      <div class="desktop-nav-hover-box">
+        <div class="desktop-nav-hover-wrapper">
+          ${columnsHtml}
+        </div>
+      </div>
+    `;
+  });
+
+  navItem.addEventListener("mouseleave", () => {
+    container.innerHTML = "";
+  });
+});
 
       const labels = data.desktopActions;
       menuItems.forEach((item, index) => {
@@ -478,13 +547,20 @@ fetch("data.json")
 
       const titleData = data.dressSectionTitle;
       document.getElementById("section-title").textContent = titleData.title;
-      document.getElementById("item-count").textContent = ` - ${filteredProducts.length} items`;
+      document.getElementById(
+        "item-count"
+      ).textContent = ` - ${filteredProducts.length} items`;
       document.getElementById("filter-heading").textContent = data.filterText;
-      document.getElementById("category-heading").textContent = data.filterHeading[0];
-      document.getElementById("brand-heading").textContent = data.filterHeading[1];
-      document.getElementById("priceHeading").textContent = data.filterHeading[2];
-      document.getElementById("colorHeading").textContent = data.filterHeading[3];
-      document.getElementById("discountHeading").textContent = data.filterHeading[4];
+      document.getElementById("category-heading").textContent =
+        data.filterHeading[0];
+      document.getElementById("brand-heading").textContent =
+        data.filterHeading[1];
+      document.getElementById("priceHeading").textContent =
+        data.filterHeading[2];
+      document.getElementById("colorHeading").textContent =
+        data.filterHeading[3];
+      document.getElementById("discountHeading").textContent =
+        data.filterHeading[4];
 
       const genderDiv = document.getElementById("gender-div");
       genderDiv.innerHTML = `<ul>${data.genders
@@ -543,7 +619,9 @@ fetch("data.json")
         .map(
           (range) => `
                 <li><label class="gender-label label-common">
-                    <input type="radio" name="discount" value="${parseInt(range)}"/>
+                    <input type="radio" name="discount" value="${parseInt(
+                      range
+                    )}"/>
                     ${range}
                     <div class="common-radio"></div>
                 </label></li>`
@@ -672,12 +750,12 @@ fetch("data.json")
   })
   .catch((err) => console.error("Error loading data:", err));
 
-  //mobile-view js
+//mobile-view js
 
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const filterBtn = document.getElementById("filter-btn");
   const filterSection = document.getElementById("filter-section");
-  const closeBtn = document.getElementById('close-btn');
+  const closeBtn = document.getElementById("close-btn");
   const overlay = document.getElementById("overlay");
   const filterCategories = document.querySelectorAll(".filter-category");
   const filterValuesContainer = document.querySelector(".filter-values");
@@ -723,8 +801,7 @@ fetch("data.json")
     overlay.classList.remove("show");
   };
 
-  
-  closeBtn.addEventListener('click', closeFilter)
+  closeBtn.addEventListener("click", closeFilter);
   overlay.addEventListener("click", closeFilter);
 
   filterCategories.forEach((category) => {

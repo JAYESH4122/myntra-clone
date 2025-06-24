@@ -472,65 +472,67 @@ fetch("data.json")
     }
 
     function initializeUI() {
-navbar.innerHTML = data.navbarItems
-  .map(item => {
-    const type = item.toLowerCase(); // 'men', 'women', 'kids'
-    return `
+      navbar.innerHTML = data.navbarItems
+        .map((item) => {
+          const type = item.toLowerCase();
+          return `
       <div class="desktop-nav-link" data-type="${type}">
         <a href="#">${item}</a>
         <div class="desktop-nav-hover-container"></div>
       </div>
     `;
-  })
-  .join("");
+        })
+        .join("");
 
-document.querySelectorAll(".desktop-nav-link").forEach(navItem => {
-  const type = navItem.dataset.type;
-  const container = navItem.querySelector(".desktop-nav-hover-container");
+      document.querySelectorAll(".desktop-nav-link").forEach((navItem) => {
+        const type = navItem.dataset.type;
+        const container = navItem.querySelector(".desktop-nav-hover-container");
 
-  navItem.addEventListener("mouseenter", () => {
-    const menu = data.menuData[`nav-items-${type}`];
-    if (!menu) return;
+        navItem.addEventListener("mouseenter", () => {
+          const menu = data.menuData[`nav-items-${type}`];
+          if (!menu) return;
 
-    const columnsHtml = Object.entries(menu)
-      .filter(([key]) => key.startsWith("columns"))
-      .map(([_, columnData]) => {
-        const columnContent = Object.values(columnData)
-          .map(section => {
-            const heading = section.heading || "";
-            const subList = (section.subheadings || [])
-              .map(sub => `<li class="hover-category-subname">${sub}</li>`)
-              .join("");
+          const columnsHtml = Object.entries(menu)
+            .filter(([key]) => key.startsWith("columns"))
+            .map(([_, columnData]) => {
+              const columnContent = Object.values(columnData)
+                .map((section) => {
+                  const heading = section.heading || "";
+                  const subList = (section.subheadings || [])
+                    .map(
+                      (sub) => `<li class="hover-category-subname">${sub}</li>`
+                    )
+                    .join("");
 
-            return `
+                  return `
               <li class="hover-category-name">${heading}</li>
               ${subList}
               <li class="hover-category-subname extra-bottom-div">Explore All →</li>
             `;
-          })
-          .join("");
+                })
+                .join("");
 
-        return `
+              return `
           <li class="desktop-hover-column">
             <ul>${columnContent}</ul>
           </li>
         `;
-      })
-      .join("");
+            })
+            .join("");
 
-    container.innerHTML = `
+          container.innerHTML = `
       <div class="desktop-nav-hover-box">
         <div class="desktop-nav-hover-wrapper">
           ${columnsHtml}
         </div>
       </div>
     `;
-  });
+        });
 
-  navItem.addEventListener("mouseleave", () => {
-    container.innerHTML = "";
-  });
-});
+        navItem.addEventListener("mouseleave", () => {
+          container.innerHTML = "";
+        });
+      });
 
       const labels = data.desktopActions;
       menuItems.forEach((item, index) => {
@@ -773,6 +775,14 @@ document.addEventListener("DOMContentLoaded", () => {
     discount: [],
   };
 
+  window.activeFilters = {
+    price: {
+      min: 0,
+      max: 48000,
+      isDefault: true,
+    },
+  };
+
   fetch("data.json")
     .then((res) => res.json())
     .then((data) => {
@@ -819,18 +829,46 @@ document.addEventListener("DOMContentLoaded", () => {
     const size = [...new Set(allProducts.flatMap((p) => p.sizes))];
     const brand = [...new Set(allProducts.map((p) => p.brand))];
     const color = [...new Set(allProducts.map((p) => p.color))];
+    const discount = [...new Set(allProducts.map((p) => p.discount))];
 
     filters.gender = gender;
     filters.categories = categories;
     filters.size = size;
     filters.brand = brand;
     filters.color = color;
+    filters.discount = discount;
 
     renderFilterValues("gender");
   };
 
   const renderFilterValues = (filterType) => {
     filterValuesContainer.innerHTML = "";
+
+    if (filterType === "price") {
+      filterValuesContainer.innerHTML = `
+        <div class="mobile-price-tab-content">
+          <div class="price-range-text">Selected price range</div>
+          <div class="price-range">₹0 - ₹48,000+</div>
+          <div class="no-of-products">181769 products found</div>
+        </div>
+        <div class="price-slider-wrapper">
+          <div class="histogram-container">
+            <div class="histogram-div"></div>
+            <div class="histogram-div"></div>
+            <div class="histogram-div"></div>
+          </div>
+          <div id="sliderRail" class="slider-rail">
+            <div class="track"></div>
+            <div class="train"></div>
+            <div class="left-slider"></div>
+            <div class="right-slider"></div>
+          </div>
+        </div>
+      `;
+      setupPriceSlider();
+      return;
+    }
+
     if (filters[filterType]) {
       filters[filterType].forEach((value) => {
         const checkbox = document.createElement("label");
@@ -842,6 +880,78 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   };
+
+  function setupPriceSlider() {
+    const leftThumb = document.querySelector(".left-slider");
+    const rightThumb = document.querySelector(".right-slider");
+    const track = document.querySelector(".track");
+    const train = document.querySelector(".train");
+    const priceRangeText = document.querySelector(".price-range");
+    const sliderRail = document.querySelector(".slider-rail");
+
+    const SLIDER_WIDTH = 156;
+    const MAX_PRICE = 48000;
+
+    let leftPos = 0;
+    let rightPos = SLIDER_WIDTH;
+
+    let activeThumb = null;
+
+    const updateUI = () => {
+      train.style.left = leftPos + "px";
+      train.style.width = rightPos - leftPos + "px";
+
+      leftThumb.style.left = leftPos + "px";
+      rightThumb.style.left = rightPos + "px";
+
+      const minPrice = Math.round((leftPos / SLIDER_WIDTH) * MAX_PRICE);
+      const maxPrice = Math.round((rightPos / SLIDER_WIDTH) * MAX_PRICE);
+
+      priceRangeText.textContent = `₹${minPrice.toLocaleString()} - ₹${maxPrice.toLocaleString()}${
+        maxPrice >= MAX_PRICE ? "+" : ""
+      }`;
+
+      activeFilters.price.min = minPrice;
+      activeFilters.price.max = maxPrice >= MAX_PRICE ? Infinity : maxPrice;
+      activeFilters.price.isDefault = false;
+    };
+
+    const onMouseMove = (e) => {
+      if (!activeThumb) return;
+
+      const railRect = sliderRail.getBoundingClientRect();
+      let x = e.clientX - railRect.left;
+      x = Math.max(0, Math.min(SLIDER_WIDTH, x));
+
+      if (activeThumb === leftThumb) {
+        if (x >= rightPos) return;
+        leftPos = x;
+      } else if (activeThumb === rightThumb) {
+        if (x <= leftPos) return;
+        rightPos = x;
+      }
+
+      updateUI();
+    };
+
+    const onMouseUp = () => {
+      activeThumb = null;
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+    };
+
+    const onMouseDown = (thumb) => (e) => {
+      e.preventDefault();
+      activeThumb = thumb;
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+    };
+
+    leftThumb.addEventListener("mousedown", onMouseDown(leftThumb));
+    rightThumb.addEventListener("mousedown", onMouseDown(rightThumb));
+
+    updateUI();
+  }
 
   applyBtn.addEventListener("click", () => {
     const selectedFilters = {
@@ -855,14 +965,21 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     document
-      .querySelectorAll('.filter-values input[type="checkbox"]:checked')
+      .querySelectorAll('input[type="checkbox"]:checked')
       .forEach((input) => {
         const filterType = input.dataset.filterType;
         selectedFilters[filterType].push(input.value);
       });
 
     const filteredProducts = allProducts.filter((product) => {
+      const pricePass =
+        !activeFilters.price ||
+        activeFilters.price.isDefault ||
+        (product.price >= activeFilters.price.min &&
+          product.price <= activeFilters.price.max);
+
       return (
+        pricePass &&
         (selectedFilters.gender.length === 0 ||
           selectedFilters.gender.includes(product.gender)) &&
         (selectedFilters.categories.length === 0 ||
@@ -872,13 +989,16 @@ document.addEventListener("DOMContentLoaded", () => {
         (selectedFilters.brand.length === 0 ||
           selectedFilters.brand.includes(product.brand)) &&
         (selectedFilters.color.length === 0 ||
-          selectedFilters.color.includes(product.color))
+          selectedFilters.color.includes(product.color)) &&
+        (selectedFilters.discount.length === 0 ||
+          selectedFilters.discount.includes(product.discount))
       );
     });
 
     renderProducts(filteredProducts);
     closeFilter();
   });
+
   const renderProducts = (products) => {
     productList.innerHTML = "";
     products.forEach((product) => {

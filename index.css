@@ -70,6 +70,15 @@ ul {
   height: 80px;
   margin: 0 0 0 3.5%;
 }
+
+.desktop-navbar .desktop-nav-link:nth-of-type(5) a {
+  margin-left: -1px;
+}
+
+.desktop-navbar .desktop-nav-link:nth-of-type(7) a {
+  margin-left: 1px;
+}
+
 .desktop-navbar .desktop-nav-link a {
   padding: 0 17px 28px;
   text-align: center;
@@ -219,7 +228,7 @@ ul {
   content: "new";
   position: relative;
   top: -6.4px;
-  left: 4px;
+  left: 5px;
   position: relative;
   vertical-align: baseline;
   text-transform: uppercase;
@@ -227,7 +236,12 @@ ul {
 .desktop-nav-link {
   display: inline-block;
 }
-
+.desktop-navbar :nth-child(even) {
+  margin: 0px -3px;
+}
+.desktop-navbar :last-child {
+  margin: 0px -1px;
+}
 .desktop-actions {
   float: right;
   display: flex;
@@ -2004,7 +2018,7 @@ h4 {
 .histogram-container :nth-child(3) {
   height: 26.4px;
 }
-.slider-rail {
+.price-slider-wrapper .slider-rail {
   top: 45px;
   width: 182px;
   position: relative;

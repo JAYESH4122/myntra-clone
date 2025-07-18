@@ -156,7 +156,7 @@
       </main>
     </div>
 
-        <div class="mobile-screen-wrapper">
+    <div class="mobile-screen-wrapper">
       <header class="mobile-header">
         <div class="header-back-icon">
           <svg class="header-back-icon-img" viewBox="0 0 24 24">
@@ -336,22 +336,16 @@
         <div class="sort-and-filter-div">
           <div class="sort-and-filter-container">
             <div class="sort-and-filter-div-wrapper">
-              <button>
+              <button id="sort-btn">
                 <svg
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
                   class="result-icon"
                 >
-                  <g fill="none" fill-rule="evenodd">
-                    <path d="M0 0h24v24H0z" opacity="0.05"></path>
-                    <path
-                      fill="#282C3F"
-                      d="M7.445 7.48V5.672L5.665 7.48h1.78zm1.09-4.42c.304.12.465.39.465.706v16.437a.784.784 0 01-.783.797.762.762 0 01-.772-.781V8.982H4.003a.832.832 0 01-.765-.204.759.759 0 01.002-1.105L7.652 3.23a.832.832 0 01.882-.17zm8.02 15.269l1.78-1.81h-1.78v1.81zm4.207-3.107a.76.76 0 01-.002 1.106l-4.412 4.442a.832.832 0 01-.882.17c-.305-.12-.466-.39-.466-.706V3.797c0-.432.332-.797.783-.797.45 0 .772.35.772.781v11.237h3.442a.833.833 0 01.765.204z"
-                    ></path>
-                  </g>
+                  ...
                 </svg>
-                SORT
+                <span id="sort-btn-text"></span>
               </button>
             </div>
           </div>
@@ -365,56 +359,42 @@
                   viewBox="0 0 24 24"
                   class="result-icon"
                 >
-                  <g fill="none" fill-rule="evenodd">
-                    <path d="M0 0h24v24H0z" opacity="0.05"></path>
-                    <path
-                      fill="#282C3F"
-                      d="M3.749 7.508a.75.75 0 010-1.5h3.138a2.247 2.247 0 014.243 0h9.121a.75.75 0 010 1.5h-9.126a2.248 2.248 0 01-4.232 0H3.749zm13.373 9h3.129a.75.75 0 010 1.5h-3.135a2.247 2.247 0 01-4.231 0H3.749a.75.75 0 010-1.5h9.13a2.248 2.248 0 014.243 0z"
-                    ></path>
-                  </g>
+                  ...
                 </svg>
-                FILTER
+                <span id="filter-btn-text"></span>
               </button>
             </div>
           </div>
         </div>
+
         <div class="banner-container">
           <div class="banner-wrapper">
-            <span>upto 300 off</span> <br />
-            <span>myntra300</span>
+            <span id="banner-line1"></span><br />
+            <span id="banner-line2"></span>
           </div>
         </div>
+
         <div class="mobile-product-list-container">
           <ul class="product-list" id="mobile-product-list"></ul>
         </div>
       </div>
-    </div>
 
-    <div id="filter-section" class="filter-section">
-      <div class="filter-header">
-        <h2>FILTERS</h2>
-      </div>
-      <div class="filter-body">
-        <div class="filter-options">
-          <div class="filter-category active" data-filter="gender">Gender</div>
-          <div class="filter-category" data-filter="categories">Categories</div>
-          <div class="filter-category" data-filter="size">Size</div>
-          <div class="filter-category" data-filter="price">Price</div>
-          <div class="filter-category" data-filter="brand">Brand</div>
-          <div class="filter-category" data-filter="color">Color</div>
-          <div class="filter-category" data-filter="discount">Discount Range</div>
-          <div class="filter-category" data-filter="discount">Country of Origin</div>
-          <div class="filter-category" data-filter="discount">More Filters</div>
+      <div id="filter-section" class="filter-section">
+        <div class="filter-header">
+          <h2 id="filters-text"></h2>
         </div>
-        <div class="filter-values">
-          </div>
+        <div class="filter-body">
+          <div class="filter-options" id="filter-options"></div>
+          <div class="filter-values" id="filter-values"></div>
+        </div>
+        <div class="filter-footer">
+          <button id="close-btn" class="filter-footer-btn close-btn"></button>
+          <button id="apply-btn" class="filter-footer-btn apply-btn"></button>
+        </div>
       </div>
-      <div class="filter-footer">
-        <button id="close-btn" class="filter-footer-btn close-btn">CLOSE</button>
-        <button id="apply-btn" class="filter-footer-btn apply-btn">APPLY</button>
-      </div>
+
+      <div id="overlay" class="overlay"></div>
     </div>
-    <div id="overlay" class="overlay"></div>
 
     <script src="./script.js"></script>
   </body>
